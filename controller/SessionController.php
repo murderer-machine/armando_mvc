@@ -8,8 +8,11 @@ use armando\core\Session;
 class SessionController extends Controller {
 
     public function inicio() {
-        Session::inicio();
-        Session::setValue('id', 2);
+
+        Session::inicio(false);
+        Session::setValue('id', 1);
+        Session::imprimirSession();
+      
     }
 
     public function salir() {
@@ -17,7 +20,8 @@ class SessionController extends Controller {
     }
 
     public function pregunta() {
-      Session::exist();
+   Session::imprimirSession();
+        echo Session::exist() ? 'existe' : 'no existe';
     }
 
 }

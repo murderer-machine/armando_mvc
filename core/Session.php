@@ -16,9 +16,14 @@ class Session {
         ini_set("session.use_trans_sid", true);
         ini_set("session.cookie_httponly", true);
         ini_set("session.cookie_secure", true);
+        $id = 'SESSION_ALEKAS';
+        session_name('SESSION_ALEKAS');
+        session_start();
     }
 
     public static function inicio($limite = false) {
+        session_unset();
+        session_destroy();
         $id = 'SESSION_ALEKAS';
         session_name('SESSION_ALEKAS');
         if ($limite) {
@@ -36,10 +41,9 @@ class Session {
         print_r($_COOKIE);
     }
 
-    static function destroy() {
+    public static function destroy() {
         session_unset();
         session_destroy();
-       
     }
 
     static function getValue($var) {
@@ -56,7 +60,7 @@ class Session {
         }
     }
 
-     public function exist() {
+    static function exist() {
         return sizeof($_SESSION) > 0 ? true : false;
     }
 
