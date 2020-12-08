@@ -10,6 +10,7 @@ namespace armando\core;
 class Session {
     private static $nombreId;
     private $marco;
+    private $marco1;
     public function __construct() {
         ini_set("session.hash_bits_per_character", 5);
         ini_set("session.hash_function", 5);
