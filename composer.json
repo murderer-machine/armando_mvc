@@ -1,0 +1,17 @@
+{
+    "name": "codemaka/mvcarmando",
+    "authors": [
+        {
+            "name": "Marco Antonio Rodriguez Salinas",
+            "email": "marcorodriguez2013@outlook.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "armando\\": "./"
+        }
+    }
+}
