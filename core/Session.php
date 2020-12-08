@@ -8,7 +8,7 @@ namespace armando\core;
  * @author Marco Antonio Rodriguez Salinas <alekas_oficial@hotmail.com>
  */
 class Session {
-
+    private static $nombreId;
     public function __construct() {
         ini_set("session.hash_bits_per_character", 5);
         ini_set("session.hash_function", 5);
@@ -16,16 +16,16 @@ class Session {
         ini_set("session.use_trans_sid", true);
         ini_set("session.cookie_httponly", true);
         ini_set("session.cookie_secure", true);
-        $id = 'SESSION_ALEKAS';
-        session_name('SESSION_ALEKAS');
+        self::$nombreId="SESSION_ALEKAS";
+        session_name(self::$nombreId);
         session_start();
     }
 
     public static function inicio($limite = false) {
         session_unset();
         session_destroy();
-        $id = 'SESSION_ALEKAS';
-        session_name('SESSION_ALEKAS');
+        $id = self::$nombreId;
+        session_name($id);
         if ($limite) {
             $time = time() + 60 * 60 * 24 * 365;
             session_set_cookie_params(60 * 60 * 24 * 365);
