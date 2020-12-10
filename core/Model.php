@@ -147,7 +147,7 @@ class Model {
         return $result;
     }
 
-    public function setDataCreate($parametros) {
+    public static function setDataCreate($parametros) {
         $parametros = (json_decode(json_encode($parametros), true));
         $result = self::instanciate($parametros);
         return $result;

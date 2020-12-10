@@ -11,9 +11,9 @@ class Aplicacion {
     public Request $request;
     public Controller $controller;
     public Session $session;
-
+    public Headers $headers;
     public function __construct($root, $root_principal) {
-
+        $this->headers = new Headers();
         self::$root = $root;
         self::$root_principal = $root_principal;
         self::$app = $this;

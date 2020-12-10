@@ -21,11 +21,13 @@ $app->ruta->get('usuario/mostrar', [UsuariosController::class, 'mostrar']);
 $app->ruta->get('usuario/modificar', [UsuariosController::class, 'update']);
 $app->ruta->get('usuario/eliminar', [UsuariosController::class, 'delete']);
 
-$app->ruta->get('sesion/inicio',[SessionController::class,'inicio']);
-$app->ruta->get('sesion/salir',[SessionController::class,'salir']);
-$app->ruta->get('sesion/pregunta',[SessionController::class,'pregunta']);
-        
+$app->ruta->get('sesion/inicio', [SessionController::class, 'inicio']);
+$app->ruta->get('sesion/salir', [SessionController::class, 'salir']);
+$app->ruta->get('sesion/pregunta', [SessionController::class, 'pregunta']);
+
 $app->ruta->get('generar', [UsuariosController::class, 'generar']);
+
+$app->ruta->get('react', 'react');
 $app->Run(true);
 
 

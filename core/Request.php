@@ -55,7 +55,7 @@ class Request {
         return $this->parametros;
     }
 
-    public function parametrosJson() {
+    public static function parametrosJson() {
         $raw = file_get_contents("php://input");
         $data = json_decode($raw);
         if (is_null($data)) {
