@@ -2,7 +2,6 @@
 
 namespace armando\core;
 
-
 /**
  * Class Controller
  * 
@@ -10,12 +9,9 @@ namespace armando\core;
  * @package app\core
  */
 class Controller {
-    
-    
-   /* public function render($vista, $parametros = []){
-      
-        return Aplicacion::$app->ruta->vistaPlantilla($vista, $parametros);
-    }*/
-   
+
+    public function json($value) {
+        return json_encode($value, JSON_PRETTY_PRINT);
+    }
 
 }

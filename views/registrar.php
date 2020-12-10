@@ -1,13 +1,13 @@
 @plantilla('reactplantilla')
 
 @bloque('titulo')
-Ejemplo  Login
+Registrar
 @fin
 
 @bloque('cabecera')
-<script src="login.js?<?php echo uniqid() ?>"></script>
+<script src="registrar.js?<?php echo uniqid() ?>"></script>
 @fin
 
 @bloque('cuerpo')
-<div id="login"></div>
+<div id="registrar"></div>
 @fin
