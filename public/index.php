@@ -28,6 +28,7 @@ $app->ruta->get('sesion/pregunta', [SessionController::class, 'pregunta']);
 $app->ruta->get('generar', [UsuariosController::class, 'generar']);
 
 $app->ruta->get('react', 'react');
+$app->ruta->get('login', 'login');
 $app->Run(true);
 
 
