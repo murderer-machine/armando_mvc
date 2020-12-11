@@ -1,2 +1,76 @@
-/*! For license information please see general.js.LICENSE.txt */
-(()=>{"use strict";var e={356:(e,n,t)=>{var r=t(294),a=t(935),o=function(){return r.createElement(r.Fragment,null,"soy hola mundo de react dasdasdsadasdsa")};if(document.getElementById("general")){var l=document.getElementById("general"),i=Object.assign({},l.dataset);a.render(r.createElement(o,i),l)}},418:e=>{var n=Object.getOwnPropertySymbols,t=Object.prototype.hasOwnProperty,r=Object.prototype.propertyIsEnumerable;function a(e){if(null==e)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(e)}e.exports=function(){try{if(!Object.assign)return!1;var e=new String("abc");if(e[5]="de","5"===Object.getOwnPropertyNames(e)[0])return!1;for(var n={},t=0;t<10;t++)n["_"+String.fromCharCode(t)]=t;if("0123456789"!==Object.getOwnPropertyNames(n).map((function(e){return n[e]})).join(""))return!1;var r={};return"abcdefghijklmnopqrst".split("").forEach((function(e){r[e]=e})),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},r)).join("")}catch(e){return!1}}()?Object.assign:function(e,o){for(var l,i,u=a(e),s=1;s<arguments.length;s++){for(var c in l=Object(arguments[s]))t.call(l,c)&&(u[c]=l[c]);if(n){i=n(l);for(var f=0;f<i.length;f++)r.call(l,i[f])&&(u[i[f]]=l[i[f]])}}return u}},53:(e,n)=>{var t,r,a,o;if("object"==typeof performance&&"function"==typeof performance.now){var l=performance;n.unstable_now=function(){return l.now()}}else{var i=Date,u=i.now();n.unstable_now=function(){return i.now()-u}}if("undefined"==typeof window||"function"!=typeof MessageChannel){var s=null,c=null,f=function(){if(null!==s)try{var e=n.unstable_now();s(!0,e),s=null}catch(e){throw setTimeout(f,0),e}};t=function(e){null!==s?setTimeout(t,0,e):(s=e,setTimeout(f,0))},r=function(e,n){c=setTimeout(e,n)},a=function(){clearTimeout(c)},n.unstable_shouldYield=function(){return!1},o=n.unstable_forceFrameRate=function(){}}else{var b=window.setTimeout,p=window.clearTimeout;if("undefined"!=typeof console){var d=window.cancelAnimationFrame;"function"!=typeof window.requestAnimationFrame&&console.error("This browser doesn't support requestAnimationFrame. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"),"function"!=typeof d&&console.error("This browser doesn't support cancelAnimationFrame. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills")}var v=!1,m=null,y=-1,h=5,w=0;n.unstable_shouldYield=function(){return n.unstable_now()>=w},o=function(){},n.unstable_forceFrameRate=function(e){0>e||125<e?console.error("forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported"):h=0<e?Math.floor(1e3/e):5};var g=new MessageChannel,k=g.port2;g.port1.onmessage=function(){if(null!==m){var e=n.unstable_now();w=e+h;try{m(!0,e)?k.postMessage(null):(v=!1,m=null)}catch(e){throw k.postMessage(null),e}}else v=!1},t=function(e){m=e,v||(v=!0,k.postMessage(null))},r=function(e,t){y=b((function(){e(n.unstable_now())}),t)},a=function(){p(y),y=-1}}function _(e,n){var t=e.length;e.push(n);e:for(;;){var r=t-1>>>1,a=e[r];if(!(void 0!==a&&0<O(a,n)))break e;e[r]=n,e[t]=a,t=r}}function x(e){return void 0===(e=e[0])?null:e}function j(e){var n=e[0];if(void 0!==n){var t=e.pop();if(t!==n){e[0]=t;e:for(var r=0,a=e.length;r<a;){var o=2*(r+1)-1,l=e[o],i=o+1,u=e[i];if(void 0!==l&&0>O(l,t))void 0!==u&&0>O(u,l)?(e[r]=u,e[i]=t,r=i):(e[r]=l,e[o]=t,r=o);else{if(!(void 0!==u&&0>O(u,t)))break e;e[r]=u,e[i]=t,r=i}}}return n}return null}function O(e,n){var t=e.sortIndex-n.sortIndex;return 0!==t?t:e.id-n.id}var T=[],P=[],C=1,I=null,E=3,F=!1,M=!1,q=!1;function A(e){for(var n=x(P);null!==n;){if(null===n.callback)j(P);else{if(!(n.startTime<=e))break;j(P),n.sortIndex=n.expirationTime,_(T,n)}n=x(P)}}function L(e){if(q=!1,A(e),!M)if(null!==x(T))M=!0,t(N);else{var n=x(P);null!==n&&r(L,n.startTime-e)}}function N(e,t){M=!1,q&&(q=!1,a()),F=!0;var o=E;try{for(A(t),I=x(T);null!==I&&(!(I.expirationTime>t)||e&&!n.unstable_shouldYield());){var l=I.callback;if("function"==typeof l){I.callback=null,E=I.priorityLevel;var i=l(I.expirationTime<=t);t=n.unstable_now(),"function"==typeof i?I.callback=i:I===x(T)&&j(T),A(t)}else j(T);I=x(T)}if(null!==I)var u=!0;else{var s=x(P);null!==s&&r(L,s.startTime-t),u=!1}return u}finally{I=null,E=o,F=!1}}var B=o;n.unstable_IdlePriority=5,n.unstable_ImmediatePriority=1,n.unstable_LowPriority=4,n.unstable_NormalPriority=3,n.unstable_Profiling=null,n.unstable_UserBlockingPriority=2,n.unstable_cancelCallback=function(e){e.callback=null},n.unstable_continueExecution=function(){M||F||(M=!0,t(N))},n.unstable_getCurrentPriorityLevel=function(){return E},n.unstable_getFirstCallbackNode=function(){return x(T)},n.unstable_next=function(e){switch(E){case 1:case 2:case 3:var n=3;break;default:n=E}var t=E;E=n;try{return e()}finally{E=t}},n.unstable_pauseExecution=function(){},n.unstable_requestPaint=B,n.unstable_runWithPriority=function(e,n){switch(e){case 1:case 2:case 3:case 4:case 5:break;default:e=3}var t=E;E=e;try{return n()}finally{E=t}},n.unstable_scheduleCallback=function(e,o,l){var i=n.unstable_now();switch(l="object"==typeof l&&null!==l&&"number"==typeof(l=l.delay)&&0<l?i+l:i,e){case 1:var u=-1;break;case 2:u=250;break;case 5:u=1073741823;break;case 4:u=1e4;break;default:u=5e3}return e={id:C++,callback:o,priorityLevel:e,startTime:l,expirationTime:u=l+u,sortIndex:-1},l>i?(e.sortIndex=l,_(P,e),null===x(T)&&e===x(P)&&(q?a():q=!0,r(L,l-i))):(e.sortIndex=u,_(T,e),M||F||(M=!0,t(N))),e},n.unstable_wrapCallback=function(e){var n=E;return function(){var t=E;E=n;try{return e.apply(this,arguments)}finally{E=t}}}},840:(e,n,t)=>{e.exports=t(53)}},n={};function t(r){if(n[r])return n[r].exports;var a=n[r]={exports:{}};return e[r](a,a.exports,t),a.exports}t.m=e,t.o=(e,n)=>Object.prototype.hasOwnProperty.call(e,n),(()=>{var e={920:0},n=[[356,736]],r=()=>{};function a(){for(var r,a=0;a<n.length;a++){for(var o=n[a],l=!0,i=1;i<o.length;i++){var u=o[i];0!==e[u]&&(l=!1)}l&&(n.splice(a--,1),r=t(t.s=o[0]))}return 0===n.length&&(t.x(),t.x=()=>{}),r}t.x=()=>{t.x=()=>{},l=l.slice();for(var e=0;e<l.length;e++)o(l[e]);return(r=a)()};var o=a=>{for(var o,l,[u,s,c,f]=a,b=0,p=[];b<u.length;b++)l=u[b],t.o(e,l)&&e[l]&&p.push(e[l][0]),e[l]=0;for(o in s)t.o(s,o)&&(t.m[o]=s[o]);for(c&&c(t),i(a);p.length;)p.shift()();return f&&n.push.apply(n,f),r()},l=self.webpackChunkmvcarmando=self.webpackChunkmvcarmando||[],i=l.push.bind(l);l.push=o})(),t.x()})();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is not neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./recursos/general.js":
+/*!*****************************!*
+  !*** ./recursos/general.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _general_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./general.scss */ \"./recursos/general.scss\");\n\n\n//# sourceURL=webpack://mvcarmando/./recursos/general.js?");
+
+/***/ }),
+
+/***/ "./recursos/general.scss":
+/*!*******************************!*
+  !*** ./recursos/general.scss ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://mvcarmando/./recursos/general.scss?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	// startup
+/******/ 	// Load entry module
+/******/ 	__webpack_require__("./recursos/general.js");
+/******/ 	// This entry module used 'exports' so it can't be inlined
+/******/ })()
+;

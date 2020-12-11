@@ -12,7 +12,7 @@ class UsuariosController extends Controller {
         $usuarios = Usuarios::setDataCreate($request->parametrosJson());
         $usuarios->setContrasena(md5($usuarios->getContrasena()));
         $respuesta = $usuarios->create();
-        return $respuesta['error'] === 1 ? 'error' : 'creado ';
+        return $this->json($respuesta['error']);
     }
 
     public function mostrar() {

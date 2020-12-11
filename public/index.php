@@ -12,10 +12,12 @@ use armando\controller\SessionController;
 $url = $_GET['alekas_url'] ?? "/";
 
 $app = new Aplicacion($url, dirname(__DIR__));
-
+// Ruta GET
 $app->ruta->get('registrar', 'registrar');
+// Ruta POST
 $app->ruta->post('registrar', [SessionController::class, 'register']);
-
+$app->ruta->post('usuario/agregar', [UsuariosController::class, 'agregar']);
+// Ruta EJECUTA
 $app->Run(true);
 
 
