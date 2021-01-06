@@ -20,6 +20,8 @@ class Aplicacion {
         $this->session = new Session();
         $this->request = new Request(self::$root);
         $this->ruta = new Ruta($this->request);
+        require "$root_principal/core/VariablesGlobales.php";
+       
     }
 
     public function Run($tiempo = false) {

@@ -21,7 +21,7 @@ class Model {
 
     public static function conexion() {
         try {
-            self::$db = new Database($_ENV['_DB_TYPE'], $_ENV['_DB_HOST'], $_ENV['_DB_NAME'], $_ENV['_DB_USER'], $_ENV['_DB_PASS']);
+            self::$db = new Database(_DB_TYPE, _DB_HOST, _DB_NAME, _DB_USER, _DB_PASS);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             print "¡Error!: " . $e->getMessage();
