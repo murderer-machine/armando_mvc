@@ -25,4 +25,10 @@ class GenerarToken {
         return $token;
     }
 
+    static function TokenUnico($data) {
+        $context = hash_init(self::$algoritmo, HASH_HMAC, self::$clave);
+        hash_update($context, $data);
+        return hash_final($context);
+    }
+
 }

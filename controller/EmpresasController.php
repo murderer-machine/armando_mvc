@@ -11,7 +11,7 @@ class EmpresasController extends Controller{
    public function agregar(Request $request) {
         $empresas = Empresas::setDataCreate($request->parametrosJson());
         $token = new GenerarToken();
-        $clave = $token->Encriptar($empresas->getPassword());
+        $clave = $token->TokenUnico($empresas->getPassword());
         $empresas->setPassword($clave);
         $respuesta = $empresas->create();
         return $this->json($respuesta['error']);

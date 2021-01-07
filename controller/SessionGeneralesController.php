@@ -13,7 +13,7 @@ class SessionGeneralesController extends Controller {
     public function login(Request $request) {
         $token=new GenerarToken();
         $datos=$request->parametrosJson();
-        $datos->password=$token->Encriptar($datos->password);
+        $datos->password=$token->TokenUnico($datos->password);
         $usuario=UsuariosGenerales::select()->where([["correo",$datos->correo],["password",$datos->password]])->run();
         $datos;
         Session::inicio(false);
