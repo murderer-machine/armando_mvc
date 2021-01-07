@@ -8,9 +8,9 @@ use armando\core\Request;
 
 class UsuariosGeneralesController extends Controller{
    public function agregar(Request $request) {
-        $usuarios = UsuariosGenerales::setDataCreate($request->parametrosJson());
+       /* $usuarios = UsuariosGenerales::setDataCreate($request->parametrosJson());
         $respuesta = $usuarios->create();
-        return $this->json($respuesta['error']);
+        return $this->json($respuesta['error']);*/
     }
 
     public function mostrar() {
