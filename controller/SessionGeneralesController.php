@@ -26,14 +26,4 @@ class SessionGeneralesController extends Controller {
             return $this->json($resultado["error"]=1);
         }
     }
-
-    public function register(Request $request) {
-        $usuario = UsuariosGenerales::setDataCreate($request->parametrosJson());
-        $token = new GenerarToken();
-        $clave = $token->Encriptar($usuario->getContrasena());
-        $usuario->setContrasena($clave);
-        $resultado = $usuario->create();
-        return $this->json($resultado);
-    }
-
 }
