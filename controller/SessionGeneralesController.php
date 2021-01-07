@@ -2,6 +2,7 @@
 
 namespace armando\controller;
 
+use armando\core\Aplicacion;
 use armando\core\Controller;
 use armando\core\Session;
 use armando\corelib\GenerarToken;
@@ -14,11 +15,16 @@ class SessionGeneralesController extends Controller {
         $token=new GenerarToken();
         $datos=$request->parametrosJson();
         $datos->password=$token->TokenUnico($datos->password);
-        $usuario=UsuariosGenerales::select()->where([["correo",$datos->correo],["password",$datos->password]])->run();
-        $datos;
-        Session::inicio(false);
-        Session::setValue('id', 1);
-        Session::imprimirSession(); 
+        $usuario=UsuariosGenerales::select()->where([["correo",$datos->correo],["password",$datos->password]])->run()->datos();
+        if(!empty($usuario)){
+            Session::inicio($datos->recordar);
+            Session::setValue('id', $usuario[0]["id"]);
+            Session::setValue('usuario',$usuario[0]["usuario"]);
+            Session::setValue('correo', $usuario[0]["correo"]);
+            return $this->json($resultado["error"]=0);
+        }else{
+            return $this->json($resultado["error"]=1);
+        }
     }
 
     public function register(Request $request) {

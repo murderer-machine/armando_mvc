@@ -5,10 +5,14 @@ namespace armando\controller;
 use armando\core\Controller;
 use armando\models\UsuariosGenerales;
 use armando\core\Request;
+use armando\corelib\GenerarToken;
 
 class UsuariosGeneralesController extends Controller{
    public function agregar(Request $request) {
         $usuarios = UsuariosGenerales::setDataCreate($request->parametrosJson());
+        $token = new GenerarToken();
+        $clave = $token->TokenUnico($usuarios->getPassword());
+        $usuarios->setPassword($clave);
         $respuesta = $usuarios->create();
         return $this->json($respuesta['error']);
     }
