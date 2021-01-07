@@ -14,6 +14,7 @@ use armando\core\Aplicacion;
 use armando\controller\UsuariosController;
 use armando\controller\SessionController;
 use armando\controller\UsuariosGeneralesController;
+use armando\controller\EmpresasController;
 
 $url = $_GET['alekas_url'] ?? "/";
 
@@ -21,6 +22,7 @@ $app = new Aplicacion($url, dirname(__DIR__));
 // Ruta GET
 $app->ruta->get('registrar', 'registrar');
 $app->ruta->get('/', [UsuariosGeneralesController::class, 'agregar']);
+$app->ruta->get('empresaCrear', [EmpresasController::class, 'agregar']);
 // Ruta POST
 $app->ruta->post('registrar', [SessionController::class, 'register']);
 $app->ruta->post('usuario/agregar', [UsuariosController::class, 'agregar']);

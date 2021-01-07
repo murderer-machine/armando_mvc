@@ -10,6 +10,7 @@ class UsuariosGenerales extends Model {
     protected $id = null;
     protected $id_empresa;
     protected $usuario;
+    protected $correo;
     protected $password;
     protected $token;
     protected $estado;
@@ -17,10 +18,11 @@ class UsuariosGenerales extends Model {
     protected $fh_creacion = fecha;
     protected $id_personal = 1;
 
-    function __construct($id_empresa, $usuario, $password, $token, $estado, $fh_pago) {
+    function __construct($id_empresa, $usuario,$correo, $password, $token, $estado, $fh_pago) {
         $this->id_empresa = $id_empresa;
         $this->usuario = $usuario;
         $this->password = $password;
+        $this->correo = $correo;
         $this->token = $token;
         $this->estado = $estado;
         $this->fh_pago = $fh_pago;
@@ -61,7 +63,13 @@ class UsuariosGenerales extends Model {
     function getId_personal() {
         return $this->id_personal;
     }
+    function getCorreo() {
+        return $this->correo;
+    }
 
+    function setCorreo($correo): void {
+        $this->correo = $correo;
+    }
     function setId($id): void {
         $this->id = $id;
     }

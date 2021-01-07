@@ -4,9 +4,9 @@ namespace armando\corelib;
 
 class GenerarToken {
 
-    protected static $clave = 'alekas@2015';
-    protected static $metodo = 'aes-128-ctr';
-    protected static $algoritmo = 'sha512';
+    protected static $clave = clave_general_server;
+    protected static $metodo = metodo;
+    protected static $algoritmo = algoritmo;
     protected static $enc_key;
 
     public function __construct() {

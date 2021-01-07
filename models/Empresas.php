@@ -4,7 +4,7 @@ namespace armando\models;
 
 use armando\core\Model;
 
-class Usuarios extends Model {
+class Empresas extends Model {
 
     protected static $table = 't_empresas';
     protected $id = null;

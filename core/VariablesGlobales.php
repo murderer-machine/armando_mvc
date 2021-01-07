@@ -6,6 +6,9 @@ define('fecha', date("Y-m-d"));
 define('hora', date("H:i:s"));
 define('hora_', date("H:i"));
 define('fecha_hora', date("Y-m-d H:i:s"));
+define('clave_general_server', "am@2021");
+define('metodo','aes-128-ctr');
+define('algoritmo','sha512');
 
 //Base Datos
 define('_DB_TYPE','mysql' );
