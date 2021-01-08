@@ -44,6 +44,7 @@ class Session {
     public static function destroy() {
         session_unset();
         session_destroy();
+        return true;
     }
 
     static function getValue($var) {
