@@ -33,7 +33,7 @@ class SessionGeneralesController extends Controller {
     }
     
     public function UsuariosCliente(){
-        
+        echo 666;
     }
 
 }

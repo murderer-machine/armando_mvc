@@ -11,10 +11,11 @@ $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
 use armando\core\Aplicacion;
-use armando\controller\UsuariosController;
 use armando\controller\SessionGeneralesController;
 use armando\controller\UsuariosGeneralesController;
 use armando\controller\EmpresasController;
+
+use armando\controller_clientes\c45463902\UsuariosController;
 
 $url = $_GET['alekas_url'] ?? "/";
 
@@ -29,6 +30,9 @@ $app->ruta->post('registrar', [SessionController::class, 'register']);
 $app->ruta->post('usuario/crear', [UsuariosGeneralesController::class, 'agregar']);
 $app->ruta->post('empresa/crear', [EmpresasController::class, 'agregar']);
 $app->ruta->post('session/login', [SessionGeneralesController::class, 'login']);
+
+
+$app->ruta->post('cliente/login', [UsuariosController::class, 'AgregarUsuarios']);
 // Ruta EJECUTA
 $app->Run(true);
 
