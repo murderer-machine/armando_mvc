@@ -10,6 +10,8 @@ class UsuariosGenerales extends Model {
     protected $id = null;
     protected $id_empresa;
     protected $usuario;
+    protected $usuario_bd;
+    protected $password_bd;
     protected $correo;
     protected $password;
     protected $token;
@@ -18,11 +20,13 @@ class UsuariosGenerales extends Model {
     protected $fh_creacion = fecha;
     protected $id_personal = 1;
 
-    function __construct($id_empresa, $usuario,$correo, $password, $token, $estado, $fh_pago) {
+    function __construct($id_empresa, $usuario, $usuario_bd, $password_bd, $correo, $password, $token, $estado, $fh_pago) {
         $this->id_empresa = $id_empresa;
         $this->usuario = $usuario;
-        $this->password = $password;
+        $this->usuario_bd = $usuario_bd;
+        $this->password_bd = $password_bd;
         $this->correo = $correo;
+        $this->password = $password;
         $this->token = $token;
         $this->estado = $estado;
         $this->fh_pago = $fh_pago;
@@ -38,6 +42,18 @@ class UsuariosGenerales extends Model {
 
     function getUsuario() {
         return $this->usuario;
+    }
+
+    function getUsuario_bd() {
+        return $this->usuario_bd;
+    }
+
+    function getPassword_bd() {
+        return $this->password_bd;
+    }
+
+    function getCorreo() {
+        return $this->correo;
     }
 
     function getPassword() {
@@ -63,13 +79,7 @@ class UsuariosGenerales extends Model {
     function getId_personal() {
         return $this->id_personal;
     }
-    function getCorreo() {
-        return $this->correo;
-    }
 
-    function setCorreo($correo): void {
-        $this->correo = $correo;
-    }
     function setId($id): void {
         $this->id = $id;
     }
@@ -80,6 +90,18 @@ class UsuariosGenerales extends Model {
 
     function setUsuario($usuario): void {
         $this->usuario = $usuario;
+    }
+
+    function setUsuario_bd($usuario_bd): void {
+        $this->usuario_bd = $usuario_bd;
+    }
+
+    function setPassword_bd($password_bd): void {
+        $this->password_bd = $password_bd;
+    }
+
+    function setCorreo($correo): void {
+        $this->correo = $correo;
     }
 
     function setPassword($password): void {
@@ -105,7 +127,5 @@ class UsuariosGenerales extends Model {
     function setId_personal($id_personal): void {
         $this->id_personal = $id_personal;
     }
-
-
 
 }

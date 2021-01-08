@@ -32,8 +32,5 @@ class SessionGeneralesController extends Controller {
         return Session::destroy() ? $this->json($resultado["error"] = 1) : $this->json($resultado["error"] = 0);
     }
     
-    public function UsuariosCliente(){
-        echo 666;
-    }
 
 }
