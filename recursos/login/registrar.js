@@ -93,7 +93,6 @@ const Registrar = () => {
       usuario: usuario.test(datos.usuario),
       contrasena: contrasena.test(datos.contrasena)
     })
-
     return nombres.test(datos.nombres) &&
       apellidos.test(datos.apellidos) &&
       usuario.test(datos.usuario) &&

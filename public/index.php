@@ -14,7 +14,6 @@ use armando\core\Aplicacion;
 use armando\controller\SessionGeneralesController;
 use armando\controller\UsuariosGeneralesController;
 use armando\controller\EmpresasController;
-
 use armando\controller_clientes\c45463902\UsuariosController;
 
 $url = $_GET['alekas_url'] ?? "/";
@@ -22,8 +21,7 @@ $url = $_GET['alekas_url'] ?? "/";
 $app = new Aplicacion($url, dirname(__DIR__));
 // Ruta GET
 $app->ruta->get('registrar', 'registrar');
-$app->ruta->get('/', function(){ echo "soy el home";});
-$app->ruta->get('session/login', function(){echo "soy el formulario de login";});
+
 // Ruta POST
 $app->ruta->post('registrar', [SessionController::class, 'register']);
 //$app->ruta->post('usuario/agregar', [UsuariosController::class, 'agregar']);
@@ -33,6 +31,13 @@ $app->ruta->post('session/login', [SessionGeneralesController::class, 'login']);
 
 
 $app->ruta->post('cliente/login', [UsuariosController::class, 'AgregarUsuarios']);
+
+
+$app->ruta->get('inicio', 'inicio');
+$app->ruta->get('autologin', [SessionGeneralesController::class, 'autoLogin']);
+$app->ruta->get('logout', [SessionGeneralesController::class, 'logout']);
+$app->ruta->get('/', 'login');
+
 // Ruta EJECUTA
 $app->Run(true);
 

@@ -1,4 +1,4 @@
-@plantilla('reactplantilla')
+@plantilla('reactPlantilla')
 
 @bloque('titulo')
 Registrar

@@ -18,19 +18,29 @@ class SessionGeneralesController extends Controller {
         $usuario = UsuariosGenerales::select()->where([["correo", $datos->correo], ["password", $datos->password]])->run()->datos();
         if (!empty($usuario)) {
             Session::inicio($datos->recordar);
-            Session::setValue('id', $usuario[0]["id"]);
-            Session::setValue('usuario', $usuario[0]["usuario"]);
-            Session::setValue('correo', $usuario[0]["correo"]);
+            Session::setValue('id', $token->Encriptar($usuario[0]["id"]));
             return $this->json($resultado["error"] = 1);
         } else {
-            $usuario = UsuariosGenerales::select()->where([["correo", $datos->correo]])->run()->datos();
-            return empty($usuario) ? $this->json($resultado["error"] = 2) : $this->json($resultado["error"] = 3);
+            return $this->json($resultado["error"] = 0);
         }
+    }
+
+    public function autoLogin() {
+        $token = new GenerarToken();
+        Session::inicio();
+        Session::setValue('id', $token->Encriptar(1));
+        echo $this->SessionID();
+    }
+
+    public function SessionID() {
+        $id = Session::getValue('id');
+        $token = new GenerarToken();
+        $usuario = UsuariosGenerales::getById($token->Desencriptar($id));
+        return $usuario;
     }
 
     public function logout() {
         return Session::destroy() ? $this->json($resultado["error"] = 1) : $this->json($resultado["error"] = 0);
     }
-    
 
 }
