@@ -5,6 +5,7 @@ module.exports = {
     entry: {
         general: './recursos/general.js',
         registrar: './recursos/login/registrar.js',
+        ingresar: './recursos/login/ingresar.js',
 
     },
     output: {

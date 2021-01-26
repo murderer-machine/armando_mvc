@@ -8,15 +8,15 @@ class UsuariosGenerales extends Model {
 
     protected static $table = 't_usuarios_generales';
     protected $id = null;
-    protected $id_empresa;
-    protected $usuario;
-    protected $usuario_bd;
-    protected $password_bd;
-    protected $correo;
-    protected $password;
+    public $id_empresa;
+    public $usuario;
+    public $usuario_bd;
+    public $password_bd;
+    public $correo;
+    public $password;
     protected $token;
-    protected $estado;
-    protected $fh_pago;
+    public $estado;
+    public $fh_pago;
     protected $fh_creacion = fecha;
     protected $id_personal = 1;
 

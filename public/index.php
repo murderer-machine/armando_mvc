@@ -21,6 +21,7 @@ $url = $_GET['alekas_url'] ?? "/";
 $app = new Aplicacion($url, dirname(__DIR__));
 // Ruta GET
 $app->ruta->get('registrar', 'registrar');
+$app->ruta->get('ingresar', 'ingresar');
 
 // Ruta POST
 $app->ruta->post('registrar', [SessionController::class, 'register']);

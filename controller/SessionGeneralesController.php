@@ -30,6 +30,7 @@ class SessionGeneralesController extends Controller {
         Session::inicio();
         Session::setValue('id', $token->Encriptar(1));
         echo $this->SessionID();
+
     }
 
     public function SessionID() {
