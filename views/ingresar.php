@@ -5,7 +5,7 @@ Registrar
 @fin
 
 @bloque('cabecera')
-<script src="ingresar.js?<?php echo uniqid() ?>"></script>
+<script src="assets/ingresar.js?<?php echo uniqid() ?>"></script>
 @fin
 
 @bloque('cuerpo')
