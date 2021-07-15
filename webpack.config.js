@@ -4,9 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: {
         general: './recursos/general.js',
-        registrar: './recursos/login/registrar.js',
-        ingresar: './recursos/login/ingresar.js',
-
+        principal: './recursos/principal/principal.js',
     },
     output: {
         path: path.resolve(__dirname, './public/assets/'),
@@ -42,7 +40,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: path.resolve(__dirname, './public/fonts/'),
+                            publicPath: 'assets/',
                         }
                     }
                 ]
@@ -54,29 +52,26 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: path.resolve(__dirname, './public/img/'),
+                            publicPath: 'assets/',
                         }
                     }
                 ]
             },
-            {
-                test: /\.svg$/,
-                loader: 'svg-inline-loader'
-            }
+          
         ]
     },
     plugins: [
         new MiniCssExtractPlugin(),
-          ],
-          optimization: {
-            splitChunks: {
-                cacheGroups: {
-                    vendor: {
-                        test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-                        name: 'vendor',
-                        chunks: 'all',
-                    }
+    ],
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all',
                 }
             }
         }
+    }
 }
