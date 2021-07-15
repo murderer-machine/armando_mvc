@@ -1,20 +1,17 @@
 <?php
 
-namespace armando\core;
+namespace hardmvc\core;
 
 class Ruta {
 
     private array $ruta;
     private Request $request;
- 
 
-    function __construct(Request $request ) {
+    function __construct(Request $request) {
         $this->request = $request;
-     
     }
 
     public function get(string $path, $callback) {
-
         $this->ruta['get'][$path] = $callback;
     }
 
@@ -23,7 +20,6 @@ class Ruta {
     }
 
     public function Resolver() {
-
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
         $callback = $this->ruta[$method][$path] ?? false;
@@ -31,7 +27,6 @@ class Ruta {
             return $this->vista('_404');
         }
         if (is_string($callback)) {
-
             if ($this->verificaVista($callback)) {
                 return $this->vistaPlantilla($callback);
             }
@@ -41,7 +36,6 @@ class Ruta {
             Aplicacion::$app->controller = new $callback[0]();
             $callback[0] = Aplicacion::$app->controller;
         }
-
         return call_user_func($callback, $this->request);
     }
 
@@ -58,7 +52,6 @@ class Ruta {
     }
 
     public function vistaPlantilla(string $nombre_vista, array $parametros = []) {
-
         $vista = $this->vista($nombre_vista, $parametros);
         if (preg_match("/\@plantilla\(\'([A-Za-z]+?)\'\)/", $vista, $out_archivo_plantilla) || preg_match("/\@plantilla\(\'\'\)/", $vista, $out_archivo_plantilla)) {
             $out_archivo_plantilla = $out_archivo_plantilla[1] ?? 'vacia';

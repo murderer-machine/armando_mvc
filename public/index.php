@@ -30,9 +30,7 @@ $app->ruta->post('usuario/crear', [UsuariosGeneralesController::class, 'agregar'
 $app->ruta->post('empresa/crear', [EmpresasController::class, 'agregar']);
 $app->ruta->post('session/login', [SessionGeneralesController::class, 'login']);
 
-
 $app->ruta->post('cliente/login', [UsuariosController::class, 'AgregarUsuarios']);
-
 
 $app->ruta->get('inicio', 'inicio');
 $app->ruta->get('autologin', [SessionGeneralesController::class, 'autoLogin']);
@@ -41,7 +39,4 @@ $app->ruta->get('/', 'login');
 
 // Ruta EJECUTA
 $app->Run(true);
-
-
-
 

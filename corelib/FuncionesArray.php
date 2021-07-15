@@ -1,21 +1,10 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+namespace hardmvc\corelib;
 
-namespace alekas\corelib;
-
-/**
- * Class FuncionesArray
- *
- * @author Marco Antonio Rodriguez Salinas <alekas_oficial@hotmail.com>
- */
 class FuncionesArray {
 
-    public static function groupArray($array, $groupkey ,$nombre = 'datos') {
+    public static function groupArray($array, $groupkey, $nombre = 'datos') {
         if (count($array) > 0) {
             $keys = array_keys($array[0]);
             $removekey = array_search($groupkey, $keys);

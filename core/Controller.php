@@ -1,8 +1,8 @@
 <?php
 
-namespace armando\core;
+namespace hardmvc\core;
 
-use armando\core\Session;
+use hardmvc\core\Session;
 
 class Controller {
 

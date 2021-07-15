@@ -1,13 +1,13 @@
 <?php
 
-namespace armando\controller;
+namespace hardmvc\controller;
 
-use armando\core\Aplicacion;
-use armando\core\Controller;
-use armando\core\Session;
-use armando\corelib\GenerarToken;
-use armando\core\Request;
-use armando\models\UsuariosGenerales;
+use hardmvc\core\Aplicacion;
+use hardmvc\core\Controller;
+use hardmvc\core\Session;
+use hardmvc\corelib\GenerarToken;
+use hardmvc\core\Request;
+use hardmvc\models\UsuariosGenerales;
 
 class SessionGeneralesController extends Controller {
 
@@ -19,9 +19,9 @@ class SessionGeneralesController extends Controller {
         if (!empty($usuario)) {
             Session::inicio($datos->recordar);
             Session::setValue('id', $token->Encriptar($usuario[0]["id"]));
-            return $this->json($resultado["error"] = 1);
+            return true;
         } else {
-            return $this->json($resultado["error"] = 0);
+            return false;
         }
     }
 
@@ -30,7 +30,6 @@ class SessionGeneralesController extends Controller {
         Session::inicio();
         Session::setValue('id', $token->Encriptar(1));
         echo $this->SessionID();
-
     }
 
     public function SessionID() {
@@ -41,7 +40,7 @@ class SessionGeneralesController extends Controller {
     }
 
     public function logout() {
-        return Session::destroy() ? $this->json($resultado["error"] = 1) : $this->json($resultado["error"] = 0);
+        return Session::destroy() ? true : false;
     }
 
 }

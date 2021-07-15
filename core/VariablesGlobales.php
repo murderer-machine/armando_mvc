@@ -7,14 +7,12 @@ define('hora', date("H:i:s"));
 define('hora_', date("H:i"));
 define('fecha_hora', date("Y-m-d H:i:s"));
 define('clave_general_server', "am@2021");
-define('metodo','aes-128-ctr');
-define('algoritmo','sha512');
-
+define('metodo', 'aes-128-ctr');
+define('algoritmo', 'sha512');
 //Base Datos
-define('_DB_TYPE','mysql' );
-define('_DB_HOST','localhost');
-define('_DB_NAME','ventas_maestro');
-define('_DB_USER','root');
-define('_DB_PASS','');
-
+define('_DB_TYPE', 'mysql');
+define('_DB_HOST', 'localhost');
+define('_DB_NAME', 'ventas_maestro');
+define('_DB_USER', 'root');
+define('_DB_PASS', '');
 

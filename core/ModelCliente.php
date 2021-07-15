@@ -1,10 +1,10 @@
 <?php
 
-namespace armando\core;
+namespace hardmvc\core;
 
 use PDO;
 use PDOException;
-use armando\core\Database;
+use hardmvc\core\Database;
 use ReflectionMethod;
 use ReflectionClass;
 
@@ -21,7 +21,7 @@ class ModelCliente {
 
     public static function conexion() {
         try {
-            self::$db = new Database(_DB_TYPE, _DB_HOST, $_SESSION['usuario'] .'_sisventas', _DB_USER, _DB_PASS);
+            self::$db = new Database(_DB_TYPE, _DB_HOST, $_SESSION['usuario'] . '_sisventas', _DB_USER, _DB_PASS);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             print "¡Error!: " . $e->getMessage();

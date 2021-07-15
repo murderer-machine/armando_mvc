@@ -1,14 +1,11 @@
 <?php
 
-namespace armando\core;
+namespace hardmvc\core;
 
-/**
- * Class session
- *
- * @author Marco Antonio Rodriguez Salinas <alekas_oficial@hotmail.com>
- */
 class Session {
+
     private static $nombreId;
+
     public function __construct() {
         ini_set("session.hash_bits_per_character", 5);
         ini_set("session.hash_function", 5);
@@ -16,7 +13,7 @@ class Session {
         ini_set("session.use_trans_sid", true);
         ini_set("session.cookie_httponly", true);
         ini_set("session.cookie_secure", true);
-        self::$nombreId="SESSION_ALEKAS";
+        self::$nombreId = "SESSION_ALEKAS";
         session_name(self::$nombreId);
         session_start();
     }

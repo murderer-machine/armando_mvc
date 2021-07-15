@@ -1,10 +1,10 @@
 <?php
 
-namespace armando\core;
+namespace hardmvc\core;
 
 use PDO;
 use PDOException;
-use armando\core\Database;
+use hardmvc\core\Database;
 use ReflectionMethod;
 use ReflectionClass;
 

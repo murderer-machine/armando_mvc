@@ -1,6 +1,6 @@
 <?php
 
-namespace armando\core;
+namespace hardmvc\core;
 
 use PDO;
 use PDOException;
@@ -14,7 +14,6 @@ class Database extends PDO {
     }
 
     public function select($sql, $array = array(), $fetchMode = PDO::FETCH_ASSOC) {
-
         $sth = $this->prepare($sql);
         foreach ($array as $key => $value) {
             $sth->bindValue("$key", $value);
@@ -24,7 +23,6 @@ class Database extends PDO {
     }
 
     public function insert($table, $data) {
-
         $fieldNames = implode('`,`', array_keys($data));
         $fieldValues = ':' . implode(', :', array_keys($data));
         $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues);");
@@ -59,8 +57,7 @@ class Database extends PDO {
     }
 
     public function delete($table, $where, $limit = 1) {
-        
-       return $this->exec("DELETE FROM $table WHERE $where LIMIT $limit");
+        return $this->exec("DELETE FROM $table WHERE $where LIMIT $limit");
     }
 
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace armando\controller;
+namespace hardmvc\controller;
 
-use armando\core\Controller;
-use armando\models\UsuariosGenerales;
-use armando\core\Request;
-use armando\corelib\GenerarToken;
+use hardmvc\core\Controller;
+use hardmvc\models\UsuariosGenerales;
+use hardmvc\core\Request;
+use hardmvc\corelib\GenerarToken;
 
 class UsuariosGeneralesController extends Controller{
    public function agregar(Request $request) {

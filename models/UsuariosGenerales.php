@@ -1,8 +1,8 @@
 <?php
 
-namespace armando\models;
+namespace hardmvc\models;
 
-use armando\core\Model;
+use hardmvc\core\Model;
 
 class UsuariosGenerales extends Model {
 

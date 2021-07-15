@@ -1,9 +1,9 @@
 <?php
 
-namespace armando\controller_clientes;
+namespace hardmvc\controller_clientes;
 
-use armando\core\Controller;
-use armando\models_clientes\Usuarios;
+use hardmvc\core\Controller;
+use hardmvc\models_clientes\Usuarios;
 
 class UsuariosController extends Controller {
 

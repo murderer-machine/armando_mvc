@@ -1,18 +1,7 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+namespace hardmvc\core;
 
-namespace armando\core;
-
-/**
- * Description of Request
- *
- * @author CodeMaka
- */
 class Request {
 
     public $root;
@@ -24,7 +13,6 @@ class Request {
     }
 
     public function getPath() {
-
         $url = explode("/", $this->root);
         if (count($url) >= 3) {
             for ($i = 2; $i < count($url); $i++) {

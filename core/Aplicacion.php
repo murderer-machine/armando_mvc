@@ -1,6 +1,6 @@
 <?php
 
-namespace armando\core;
+namespace hardmvc\core;
 
 class Aplicacion {
 
@@ -12,6 +12,7 @@ class Aplicacion {
     public Controller $controller;
     public Session $session;
     public Headers $headers;
+
     public function __construct($root, $root_principal) {
         $this->headers = new Headers();
         self::$root = $root;
@@ -21,7 +22,6 @@ class Aplicacion {
         $this->request = new Request(self::$root);
         $this->ruta = new Ruta($this->request);
         require "$root_principal/core/VariablesGlobales.php";
-       
     }
 
     public function Run($tiempo = false) {

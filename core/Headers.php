@@ -1,19 +1,9 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+namespace hardmvc\core;
 
-namespace armando\core;
-
-/**
- * Class Headers
- *
- * @author Marco Antonio Rodriguez Salinas <alekas_oficial@hotmail.com>
- */
 class Headers {
+
     public function __construct() {
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Credentials: true');
@@ -23,4 +13,5 @@ class Headers {
         header('Cache-Control: no-cache');
         header('Pragma: no-cache');
     }
+
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace armando\models_clientes;
+namespace hardmvc\models_clientes;
 
-use armando\core\ModelCliente;
+use hardmvc\core\ModelCliente;
 
 class Usuarios extends ModelCliente {
 
