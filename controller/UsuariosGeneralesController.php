@@ -13,8 +13,10 @@ class UsuariosGeneralesController extends Controller{
         $token = new GenerarToken();
         $clave = $token->TokenUnico($usuarios->getPassword());
         $usuarios->setPassword($clave);
+        $usuarios->setEstado(1);
+        $usuarios->setFecha_creacion(fecha_hora);        
         $respuesta = $usuarios->create();
-        return $this->json($respuesta['error']);
+        return $this->json($respuesta);
     }
 
     public function mostrar() {
@@ -26,12 +28,12 @@ class UsuariosGeneralesController extends Controller{
         $usuarios = UsuariosGenerales::getById($request->parametros()['id']);
         $usuarios->setDataUpdate($request->parametros());
         $respuesta = $usuarios->update();
-        return $respuesta['error'] === 1 ? 'error' : 'modificado ';
+        return $this->json($respuesta);
     }
 
     public function delete(Request $request) {
         $usuarios = UsuariosGenerales::getById($request->parametros()['id']);
         $respuesta = $usuarios->delete($request);
-        return $respuesta['error'] === 1 ? 'error' : 'eliminado ';
+        return $this->json($respuesta);
     }   
 }

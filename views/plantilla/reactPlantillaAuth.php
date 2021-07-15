@@ -1,5 +1,5 @@
 <?php 
-use armando\core\Controller;
+use hardmvc\core\Controller;
 Controller::VerificarSessionAuth();
 ?>
 <!DOCTYPE html>

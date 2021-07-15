@@ -2,7 +2,6 @@
 
 namespace hardmvc\controller;
 
-use hardmvc\core\Aplicacion;
 use hardmvc\core\Controller;
 use hardmvc\core\Session;
 use hardmvc\corelib\GenerarToken;

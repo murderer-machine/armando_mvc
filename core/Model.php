@@ -21,7 +21,7 @@ class Model {
 
     public static function conexion() {
         try {
-            self::$db = new Database(_DB_TYPE, _DB_HOST, _DB_NAME, _DB_USER, _DB_PASS);
+            self::$db = new Database($_ENV['_DB_TYPE'], $_ENV['_DB_HOST'], $_ENV['_DB_NAME'], $_ENV['_DB_USER'], $_ENV['_DB_PASS']);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             print "¡Error!: " . $e->getMessage();
@@ -69,14 +69,14 @@ class Model {
         $result = self::$db->insert(static::$table, $values);
         if ($result) {
             $response = array(
-                'error' => 0,
+                'error' => true,
                 'getID' => self::$db->lastInsertId(),
                 'msg' => get_class($this) . ' Created'
             );
             $this->setId(self::$db->lastInsertId());
         } else {
             $response = array(
-                'error' => 1,
+                'error' => false,
                 'msg' => 'Error ' . $result
             );
         }
@@ -119,12 +119,12 @@ class Model {
         $result = self::$db->update(static::$table, $values, $field . " = " . $value);
         if ($result) {
             $response = array(
-                'error' => 0,
+                'error' => true,
                 'msg' => get_class($this) . ' Updated'
             );
         } else {
             $response = array(
-                'error' => 1,
+                'error' => false,
                 'msg' => 'Error ' . $result
             );
         }
@@ -135,12 +135,12 @@ class Model {
         $result = self::$db->delete(static::$table, "id = " . $request->parametros()['id']);
         if ($result) {
             $result = array(
-                'error' => 0,
+                'error' => true,
                 'message' => 'Objeto Eliminado'
             );
         } else {
             $result = array(
-                'error' => 1,
+                'error' => false,
                 'message' => self::$db->getError()
             );
         }
