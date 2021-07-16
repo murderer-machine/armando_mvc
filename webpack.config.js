@@ -39,7 +39,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name].[ext]',
+                            name: '[contenthash].[ext]',
                             publicPath: 'assets/',
                         }
                     }
@@ -51,13 +51,12 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name].[ext]',
+                            name: '[contenthash].[ext]',
                             publicPath: 'assets/',
                         }
                     }
                 ]
-            },
-          
+            },          
         ]
     },
     plugins: [

@@ -1,7 +1,7 @@
-@plantilla('web')
+@plantilla('auth')
 
 @bloque('titulo')
-principal
+principal2
 @fin
 
 @bloque('cabecera')

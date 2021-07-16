@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import logo from '../img/google.png'
+import logo from '../img/google.svg'
 
 const Principal = () => {
     return (
